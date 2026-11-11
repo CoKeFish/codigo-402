@@ -76,3 +76,10 @@ Las llaves del `.env` son de testnet y no valen nada, pero el archivo no se sube
 - Repo canónico: https://github.com/stellar/x402-stellar
 - Facilitador alterno (OpenZeppelin, pide API key): `https://channels.openzeppelin.com/x402/testnet`
 - Explorador de testnet: https://stellar.expert/explorer/testnet
+
+## Mi primer pago en Stellar
+
+1 USDC del pagador al cobrador, en testnet (sesión 1).
+
+- Hash: `b91ba80c7a852439a2da6dafed7b5cfdc71f81ae67ea9e0388b8402dc6f73fe0`
+- Verlo: https://stellar.expert/explorer/testnet/tx/b91ba80c7a852439a2da6dafed7b5cfdc71f81ae67ea9e0388b8402dc6f73fe0
