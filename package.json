@@ -8,7 +8,8 @@
     "verificar": "node sesion-4-verificar/verificar.js",
     "cuentas": "node sesion-1-cuenta-y-pago/crear-cuentas.js",
     "usdc": "node sesion-1-cuenta-y-pago/conseguir-usdc.js",
-    "pagar": "node sesion-1-cuenta-y-pago/primer-pago.js"
+    "pagar": "node sesion-1-cuenta-y-pago/primer-pago.js",
+    "cliente": "node sesion-2-api-x402/cliente.js"
   },
   "dependencies": {
     "@stellar/stellar-sdk": "^17.4.0",
