@@ -4,6 +4,7 @@
   "description": "Bootcamp Código 402: Agentes que pagan (x402 sobre Stellar testnet)",
   "scripts": {
     "api": "node sesion-2-api-x402/server.js",
+    "agente-wallet": "node sesion-3-agente/crear-agente.js",
     "agente": "node sesion-3-agente/agente.js",
     "verificar": "node sesion-4-verificar/verificar.js",
     "cuentas": "node sesion-1-cuenta-y-pago/crear-cuentas.js",

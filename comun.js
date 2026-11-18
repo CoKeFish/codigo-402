@@ -28,7 +28,8 @@ export const PRECIO = process.env.PRECIO ?? "$0.01";
 export function requerida(nombre) {
   const valor = process.env[nombre];
   if (!valor || valor.endsWith("...")) {
-    console.error(`Falta ${nombre} en .env. Corre primero: npm run cuentas`);
+    const comando = nombre.startsWith("AGENTE_") ? "npm run agente-wallet" : "npm run cuentas";
+    console.error(`Falta ${nombre} en .env. Corre primero: ${comando}`);
     process.exit(1);
   }
   return valor;
