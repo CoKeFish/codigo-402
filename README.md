@@ -54,7 +54,7 @@ npm run api           # terminal 1: API que responde 402 hasta que le pagan
 npm run cliente       # terminal 2: pide el dato, recibe el 402, paga 0.01 USDC y lo vuelve a pedir
 npm run agente-wallet # una vez: wallet propia del agente con 0.05 USDC de presupuesto
 npm run agente        # terminal 2: el agente pregunta el precio, revisa su saldo y paga solo
-npm run verificar -- <hash>   # comprueba cualquier pago en la red
+npm run verificar -- <hash>   # le pregunta a la RPC de Stellar por ese pago
 ```
 
 El agente tiene tres límites: su propia wallet con poco dinero, un tope por pago
@@ -105,3 +105,10 @@ Las llaves del `.env` son de testnet y no valen nada, pero el archivo no se sube
 - Tope por pago: `$0.02`. Lo que lo excede se rechaza sin transacción.
 - Pago del agente a mi API: `989a5727aa5b510b1e5dd0f4d8cd0dd9a708aee88b14a352dd649daefeaa0397`
 - Verlo: https://stellar.expert/explorer/testnet/tx/989a5727aa5b510b1e5dd0f4d8cd0dd9a708aee88b14a352dd649daefeaa0397
+
+## Mi verificador
+
+Verifica un pago preguntándole a la red (RPC de Stellar), no a la API ni al agente (sesión 4).
+
+- Pago que verifiqué con RPC: `b9629799963e0b629175515f0d15568de1e643ad3b8871f369316af9af7e06c2`
+- Verlo: https://stellar.expert/explorer/testnet/tx/b9629799963e0b629175515f0d15568de1e643ad3b8871f369316af9af7e06c2
