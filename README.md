@@ -17,7 +17,7 @@ En línea por Google Meet. 18:00–19:15 CDMX = **19:00–20:15 Bogotá**.
 | Mar 10 nov | Tu primera cuenta y tu primer pago en Stellar | `sesion-1-cuenta-y-pago/` | entregada |
 | Jue 12 nov | Cobra por tu API con x402 | `sesion-2-api-x402/` | entregada |
 | Mar 17 nov | Un agente que paga solo, con límite de gasto | `sesion-3-agente/` | entregada |
-| Jue 19 nov | Verifica un pago en la red | `sesion-4-verificar/` | base lista |
+| Jue 19 nov | Verifica un pago en la red | `sesion-4-verificar/` | entregada |
 | Mar 24 nov | Taller de prototipos y ensayo del Demo Day | `prototipo/` | pendiente |
 | Vie 27 nov | **Demo Day** (19:00–21:00 Bogotá) | `prototipo/` | pendiente |
 
@@ -33,6 +33,7 @@ mismo ejercicio, con una carpeta por sesión.
 | 1 | `.gitignore` con `.env`, `.env.example`, script de cuentas, script del primer pago y el hash del pago en este README | 3: estructura · cuentas con trustline · primer pago |
 | 2 | API (`server.js`) con una ruta que cobra con x402, cliente (`cliente.js`) y el hash de un pago real en este README | 3: ruta gratis · ruta protegida (402) · pago con el cliente |
 | 3 | Agente (`agente.js`) con wallet propia (`crear-agente.js`) que paga la API hasta su tope y rechaza lo que lo excede sin transacción, y el hash de un pago del agente en este README | 3: agente que paga · tope por pago · errores y reintentos |
+| 4 | Verificador (`verificar.js`) que consulta el hash en la RPC y acepta el pago correcto o lo rechaza por contrato, monto o destinatario; pruebas (`verificar.test.js`) y el hash verificado en este README | 3: consulta con RPC · validación de USDC, monto y destinatario · pruebas de rechazo |
 
 ## Uso
 
@@ -62,6 +63,8 @@ transacción y revisa que el contrato sea el de USDC, que el destinatario sea
 `COBRADOR_PUBLIC` y que el monto sea el precio. Para ver un rechazo:
 `MONTO=0.05 npm run verificar -- <hash>` o `DESTINO=G... npm run verificar -- <hash>`.
 La RPC pública de testnet solo guarda unos 7 días: un hash más viejo sale `NOT_FOUND`.
+`npm test` corre 4 pruebas contra la red con el último hash de este README: acepta el pago
+correcto y rechaza el monto equivocado, el destinatario equivocado y un hash que no existe.
 
 El agente tiene tres límites: su propia wallet con poco dinero, un tope por pago
 (`TOPE`, por defecto `$0.02`) que x402 revisa antes de firmar, y la regla de no pagar a
