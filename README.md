@@ -54,8 +54,14 @@ npm run api           # terminal 1: API que responde 402 hasta que le pagan
 npm run cliente       # terminal 2: pide el dato, recibe el 402, paga 0.01 USDC y lo vuelve a pedir
 npm run agente-wallet # una vez: wallet propia del agente con 0.05 USDC de presupuesto
 npm run agente        # terminal 2: el agente pregunta el precio, revisa su saldo y paga solo
-npm run verificar -- <hash>   # le pregunta a la RPC de Stellar por ese pago
+npm run verificar -- <hash>   # le pregunta a la RPC de Stellar si ese pago es 0.01 USDC a la API
 ```
+
+El verificador no le cree a la API ni al agente: lee en la red el evento `transfer` de la
+transacción y revisa que el contrato sea el de USDC, que el destinatario sea
+`COBRADOR_PUBLIC` y que el monto sea el precio. Para ver un rechazo:
+`MONTO=0.05 npm run verificar -- <hash>` o `DESTINO=G... npm run verificar -- <hash>`.
+La RPC pública de testnet solo guarda unos 7 días: un hash más viejo sale `NOT_FOUND`.
 
 El agente tiene tres límites: su propia wallet con poco dinero, un tope por pago
 (`TOPE`, por defecto `$0.02`) que x402 revisa antes de firmar, y la regla de no pagar a
